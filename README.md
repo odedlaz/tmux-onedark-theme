@@ -20,6 +20,16 @@ You can control the widgets on `right-status` by setting `@onedark_widgets`, for
 set -g @onedark_widgets "#(date +%s)"
 ```
 
+You can toggle between the default 24-hour format to 12 hour format by setting `@onedark_twelve_hour`, for example:
+```
+set -g @onedark_twelve_hour "on"
+```
+
+You can toggle between the default dd/mm/yy format to mm/dd/yy format by setting `@onedark_month_first`, for example:
+```
+set -g @onedark_month_first "on"
+```
+
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
