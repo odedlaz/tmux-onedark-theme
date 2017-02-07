@@ -12,6 +12,26 @@ get_widgets() {
    echo "$(tmux show-option -gqv "@onedark_widgets")"
 }
 
+get_variable() {
+  echo "$(tmux show-option -gqv "@onedark_$1")"
+}
+
+get_time_string() {
+  if [ "$(get_variable "twelve_hour")" == "on" ]; then
+    echo "%l:%M %p"
+  else
+    echo "%H:%M"
+  fi
+}
+
+get_date_string() {
+  if [ "$(get_variable "month_first")" == "on" ]; then
+    echo "%m/%d/%y"
+  else
+    echo "%d/%m/%y"
+  fi
+}
+
 set() {
    local option=$1
    local value=$2
@@ -67,7 +87,7 @@ set "@prefix_highlight_bg" "$onedark_green"
 set "@prefix_highlight_copy_mode_attr" "fg=$onedark_black,bg=$onedark_green"
 set "@prefix_highlight_output_prefix" "  "
 
-set "status-right" "#[fg=$onedark_white,bg=$onedark_black,nounderscore,noitalics]%H:%M  %d/%m/%y #[fg=$onedark_visual_grey,bg=$onedark_black]#[fg=$onedark_visual_grey,bg=$onedark_visual_grey]#[fg=$onedark_white, bg=$onedark_visual_grey]$(get_widgets) #[fg=$onedark_green,bg=$onedark_visual_grey,nobold,nounderscore,noitalics]#[fg=$onedark_black,bg=$onedark_green,bold] #h #[fg=$onedark_yellow, bg=$onedark_green]#[fg=$onedark_red,bg=$onedark_yellow]"
+set "status-right" "#[fg=$onedark_white,bg=$onedark_black,nounderscore,noitalics]$(get_time_string)  $(get_date_string) #[fg=$onedark_visual_grey,bg=$onedark_black]#[fg=$onedark_visual_grey,bg=$onedark_visual_grey]#[fg=$onedark_white, bg=$onedark_visual_grey]$(get_widgets) #[fg=$onedark_green,bg=$onedark_visual_grey,nobold,nounderscore,noitalics]#[fg=$onedark_black,bg=$onedark_green,bold] #h #[fg=$onedark_yellow, bg=$onedark_green]#[fg=$onedark_red,bg=$onedark_yellow]"
 set "status-left" "#[fg=$onedark_visual_grey,bg=$onedark_green,bold] #S #{prefix_highlight}#[fg=$onedark_green,bg=$onedark_black,nobold,nounderscore,noitalics]"
 
 set "window-status-format" "#[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]#[fg=$onedark_white,bg=$onedark_black] #I  #W #[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]"
