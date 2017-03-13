@@ -8,8 +8,16 @@ onedark_green="#98c379"
 onedark_visual_grey="#3e4452"
 onedark_comment_grey="#5c6370"
 
-get_widgets() {
-   echo "$(tmux show-option -gqv "@onedark_widgets")"
+get() {
+   local option=$1
+   local default_value=$2
+   local option_value="$(tmux show-option -gqv "$option")"
+
+   if [ -z "$option_value" ]; then
+      echo "$default_value"
+   else
+      echo "$option_value"
+   fi
 }
 
 set() {
@@ -67,7 +75,11 @@ set "@prefix_highlight_bg" "$onedark_green"
 set "@prefix_highlight_copy_mode_attr" "fg=$onedark_black,bg=$onedark_green"
 set "@prefix_highlight_output_prefix" "  "
 
-set "status-right" "#[fg=$onedark_white,bg=$onedark_black,nounderscore,noitalics]%H:%M  %d/%m/%y #[fg=$onedark_visual_grey,bg=$onedark_black]#[fg=$onedark_visual_grey,bg=$onedark_visual_grey]#[fg=$onedark_white, bg=$onedark_visual_grey]$(get_widgets) #[fg=$onedark_green,bg=$onedark_visual_grey,nobold,nounderscore,noitalics]#[fg=$onedark_black,bg=$onedark_green,bold] #h #[fg=$onedark_yellow, bg=$onedark_green]#[fg=$onedark_red,bg=$onedark_yellow]"
+status_widgets=$(get "@onedark_widgets")
+time_format=$(get "@onedark_time_format" "%R")
+date_format=$(get "@onedark_date_format" "%d/%m/%Y")
+
+set "status-right" "#[fg=$onedark_white,bg=$onedark_black,nounderscore,noitalics]${time_format}  ${date_format} #[fg=$onedark_visual_grey,bg=$onedark_black]#[fg=$onedark_visual_grey,bg=$onedark_visual_grey]#[fg=$onedark_white, bg=$onedark_visual_grey]${status_widgets} #[fg=$onedark_green,bg=$onedark_visual_grey,nobold,nounderscore,noitalics]#[fg=$onedark_black,bg=$onedark_green,bold] #h #[fg=$onedark_yellow, bg=$onedark_green]#[fg=$onedark_red,bg=$onedark_yellow]"
 set "status-left" "#[fg=$onedark_visual_grey,bg=$onedark_green,bold] #S #{prefix_highlight}#[fg=$onedark_green,bg=$onedark_black,nobold,nounderscore,noitalics]"
 
 set "window-status-format" "#[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]#[fg=$onedark_white,bg=$onedark_black] #I  #W #[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]"
