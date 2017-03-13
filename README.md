@@ -29,7 +29,7 @@ Once set, these widgets will show on the right.
 
 ####Time format
 
-Time format can be controlled by setting "@onedark_time_format", for example:
+Time format can be controlled by setting `@onedark_time_format`, for example:
 
 ```
 set -g @onedark_time_format "%I:%M %p"
@@ -41,26 +41,24 @@ set -g @onedark_time_format "%I:%M %p"
 
 **default**: `%R` - The time in 24-hour notation (%H:%M).
 
-These modifiers were taken from from strftime
-[manpage](http://man7.org/linux/man-pages/man3/strftime.3.html).
+These modifiers were taken from from [strftime manpage](http://man7.org/linux/man-pages/man3/strftime.3.html).
 
-####Time format
+####Date format
 
-Date format can be controlled by setting "@onedark_date_format", for example:
+Date format can be controlled by setting `@onedark_date_format`, for example:
 
 ```
 set -g @onedark_date_format "%D"
 ```
 
-`%D` - Equivalent to %m/%d/%y.   
+`%D` - Equivalent to %m/%d/%y (American format).   
 `%m` - The month as a decimal number.  
 `%d` - The day of the month as a decimal number  
 `%y` - The year as a decimal number without the century.  
 
 **default**: `%d/%m/%Y` - The date in non-American format.
 
-These modifiers were taken from from strftime
-[manpage](http://man7.org/linux/man-pages/man3/strftime.3.html).
+These modifiers were taken from from [strftime manpage](http://man7.org/linux/man-pages/man3/strftime.3.html).
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
