@@ -86,8 +86,14 @@ Reload TMUX environment (type this in terminal)
 
 ### Symbols are missing
 
-   The theme requires Powerline symbols exist on your system. Follow [these instructions](https://github.com/powerline/fonts) to install them.
+   The theme requires Powerline symbols exist and set on your system. Follow [these instructions](https://github.com/powerline/fonts) to install them, then update your terminal fonts to use them.
 
+### Symbols are corrupted
+
+   Patched Powerline fonts aren't picked up when `$LANG` isn't set to `en_US`.  
+   You can change the default locale settings at `/etc/default/locale`.
+
+   
 ### Widgets not working
 
    Make sure that you put the `set -g @plugin 'odedlaz/tmux-onedark-theme'` before other scripts that alter the status line, or they won't be able to pickup the plugin's changes.
