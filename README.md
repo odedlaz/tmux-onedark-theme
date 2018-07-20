@@ -15,7 +15,7 @@ These widgets are available in [tmux-status-variables](https://github.com/odedla
 
 **!** Set the following options in your `.tmux.conf`
 
-####widgets
+#### widgets
 
 Widgets can be controlled by setting `@onedark_widgets`, for example:
 
@@ -27,7 +27,7 @@ Once set, these widgets will show on the right.
 
 **default**: empty string.
 
-####Time format
+#### Time format
 
 Time format can be controlled by setting `@onedark_time_format`, for example:
 
@@ -43,7 +43,7 @@ set -g @onedark_time_format "%I:%M %p"
 
 These modifiers were taken from from [strftime manpage](http://man7.org/linux/man-pages/man3/strftime.3.html).
 
-####Date format
+#### Date format
 
 Date format can be controlled by setting `@onedark_date_format`, for example:
 
