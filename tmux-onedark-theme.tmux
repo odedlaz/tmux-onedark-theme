@@ -61,9 +61,9 @@ setw "window-status-separator" ""
 set "window-style" "fg=$onedark_white"
 set "window-active-style" "fg=$onedark_white"
 
-set "pane-border-fg" "$onedark_white"
+set "pane-border-fg" "$onedark_comment_grey"
 set "pane-border-bg" "$onedark_black"
-set "pane-active-border-fg" "$onedark_green"
+set "pane-active-border-fg" "$onedark_white"
 set "pane-active-border-bg" "$onedark_black"
 
 set "display-panes-active-colour" "$onedark_yellow"
