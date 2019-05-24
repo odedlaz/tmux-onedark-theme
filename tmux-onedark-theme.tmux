@@ -73,15 +73,15 @@ set "display-panes-colour" "$onedark_blue"
 set "status-bg" "$onedark_black"
 set "status-fg" "$onedark_white"
 
-set "@prefix_highlight_fg" "$onedark_blue"
-set "@prefix_highlight_bg" "$onedark_black"
+set "@prefix_highlight_fg" "$onedark_black"
+set "@prefix_highlight_bg" "$onedark_blue"
 
 status_widgets=$(get "@onedark_widgets")
 time_format=$(get "@onedark_time_format" "%R")
 date_format=$(get "@onedark_date_format" "%d/%m/%Y")
 
 set "status-left" "#[fg=$onedark_black,bg=$onedark_blue] #S "
-set "status-right" "#{prefix_highlight}#[fg=$onedark_white,bg=$onedark_black]${time_format} | ${date_format} #[fg=$onedark_white, bg=$onedark_visual_grey] ${status_widgets} #[fg=$onedark_black,bg=$onedark_blue] #h "
+set "status-right" "#{prefix_highlight} #[fg=$onedark_white,bg=$onedark_black]${time_format} | ${date_format} #[fg=$onedark_white, bg=$onedark_visual_grey] ${status_widgets} #[fg=$onedark_black,bg=$onedark_blue] #h "
 
 set "window-status-format" " #[fg=$onedark_white,bg=$onedark_black] #I #W "
 set "window-status-current-format" " #[fg=$onedark_white,bg=$onedark_visual_grey] #I #W #[fg=$onedark_black]"
