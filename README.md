@@ -25,6 +25,14 @@ set -g @onedark_widgets "#(date +%s)"
 
 Once set, these widgets will show on the right.
 
+### show directory name
+
+Directory name can be shown in tabs by setting following option
+
+```
+setenv -g SHOW_DIRECTORY_NAME 1
+```
+
 **default**: empty string.
 
 #### Time format
