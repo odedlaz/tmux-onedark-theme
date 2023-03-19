@@ -1,10 +1,10 @@
 #!/bin/bash
 onedark_black="#282c34"
-onedark_blue="#61afef"
-onedark_yellow="#e5c07b"
-onedark_red="#e06c75"
-onedark_white="#aab2bf"
-onedark_green="#98c379"
+onedark_blue="#57a5e5"
+onedark_yellow="#dbb671"
+onedark_red="#de5d68"
+onedark_white="#a7aab0"
+onedark_green="#8fb573"
 onedark_visual_grey="#3e4452"
 onedark_comment_grey="#5c6370"
 
@@ -86,3 +86,4 @@ set "status-left" "#[fg=$onedark_black,bg=$onedark_green,bold] #S #{prefix_highl
 
 set "window-status-format" "#[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]#[fg=$onedark_white,bg=$onedark_black] #I  #W #[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]"
 set "window-status-current-format" "#[fg=$onedark_black,bg=$onedark_visual_grey,nobold,nounderscore,noitalics]#[fg=$onedark_white,bg=$onedark_visual_grey,nobold] #I  #W #[fg=$onedark_visual_grey,bg=$onedark_black,nobold,nounderscore,noitalics]"
+
