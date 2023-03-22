@@ -1,4 +1,7 @@
 #!/bin/bash
+
+source ./tmux-xcolors.tmux
+
 onedark_black=${tmux_black:-"#282c34"}
 onedark_blue=${tmux_blue:-"#57a5e5"}
 onedark_yellow=${tmux_yellow:-"#dbb671"}
