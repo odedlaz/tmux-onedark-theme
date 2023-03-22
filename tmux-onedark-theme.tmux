@@ -1,35 +1,38 @@
 #!/bin/bash
-onedark_black="#282c34"
-onedark_blue="#61afef"
-onedark_yellow="#e5c07b"
-onedark_red="#e06c75"
-onedark_white="#aab2bf"
-onedark_green="#98c379"
-onedark_visual_grey="#3e4452"
+
+source ./tmux-xcolors.tmux
+
+onedark_black=${tmux_black:-"#282c34"}
+onedark_blue=${tmux_blue:-"#57a5e5"}
+onedark_yellow=${tmux_yellow:-"#dbb671"}
+onedark_red=${tmux_red:-"#de5d68"}
+onedark_white=${tmux_white:-"#a7aab0"}
+onedark_green=${tmux_green:-"#8fb573"}
+onedark_visual_grey=${tmux_light_black:-"#3e4452"}
 onedark_comment_grey="#5c6370"
 
 get() {
-   local option=$1
-   local default_value=$2
-   local option_value="$(tmux show-option -gqv "$option")"
+	local option=$1
+	local default_value=$2
+	local option_value="$(tmux show-option -gqv "$option")"
 
-   if [ -z "$option_value" ]; then
-      echo "$default_value"
-   else
-      echo "$option_value"
-   fi
+	if [ -z "$option_value" ]; then
+		echo "$default_value"
+	else
+		echo "$option_value"
+	fi
 }
 
 set() {
-   local option=$1
-   local value=$2
-   tmux set-option -gq "$option" "$value"
+	local option=$1
+	local value=$2
+	tmux set-option -gq "$option" "$value"
 }
 
 setw() {
-   local option=$1
-   local value=$2
-   tmux set-window-option -gq "$option" "$value"
+	local option=$1
+	local value=$2
+	tmux set-window-option -gq "$option" "$value"
 }
 
 set "status" "on"
