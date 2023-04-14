@@ -81,7 +81,7 @@ status_widgets=$(get "@onedark_widgets")
 time_format=$(get "@onedark_time_format" "%R")
 date_format=$(get "@onedark_date_format" "%d/%m/%Y")
 
-if [ "$computer_name" = "lorenzo-nb" ]; then
+if [ "$(uname -n)" = "lorenzo-nb" ]; then
     set  "status-right" "#[fg=$onedark_visual_grey,bg=$onedark_black,nobold,noitalics,nounderscore]#[fg=$onedark_white,bg=$onedark_visual_grey]⚡#{cpu_percentage}  🧠 #{ram} #[fg=white,bg=$onedark_visual_grey,nobold,noitalics,nounderscore]#[fg=$one_dark_visual_grey,bg=black,nobold,noitalics,nounderscore]#[fg=white,bg=$onedark_visual_grey]🔋#{battery_percentage}#[fg=white,bg=$onedark_visual_grey,nobold,noitalics,nounderscore]  #[fg=white,bg=$onedark_visual_grey] 🕒 %H:%M  #{online_status} 📡🔻#{download_speed} 📡🔺#{upload_speed} #[fg=#$onedark_green,bg=$onedark_visual_grey,nobold,noitalics,nounderscore]#[fg=$onedark_black,bg=$onedark_green,bold] #h #[fg=$onedark_yellow, bg=$onedark_green]#[fg=$onedark_red,bg=$onedark_yellow]"
 else
     set  "status-right" "#[fg=$onedark_visual_grey,bg=$onedark_black,nobold,noitalics,nounderscore]#[fg=$onedark_white,bg=$onedark_visual_grey]⚡#{cpu_percentage}  🧠 #{ram} #[fg=white,bg=$onedark_visual_grey,nobold,noitalics,nounderscore]#[fg=white,bg=$onedark_visual_grey] 🕒 %H:%M  #{online_status} 📡🔻#{download_speed} 📡🔺#{upload_speed} #[fg=#$onedark_green,bg=$onedark_visual_grey,nobold,noitalics,nounderscore]#[fg=$onedark_black,bg=$onedark_green,bold] #h #[fg=$onedark_yellow, bg=$onedark_green]#[fg=$onedark_red,bg=$onedark_yellow]"
