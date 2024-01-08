@@ -58,7 +58,12 @@ setw "window-status-activity-attr" "none"
 
 setw "window-status-separator" ""
 
-set "window-style" "fg=$onedark_comment_grey"
+fade_inactive_panes=$(get "@onedark_fade_inactive_panes" "true")
+if [ "$fade_inactive_panes" = "true" ]; then
+   set "window-style" "fg=$onedark_comment_grey"
+else
+   set "window-style" "fg=$onedark_white"
+fi
 set "window-active-style" "fg=$onedark_white"
 
 set "pane-border-fg" "$onedark_white"
