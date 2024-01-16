@@ -1,13 +1,13 @@
 #!/bin/bash
-darcula_black="#262626"
-darcula_blue="#4a83dd"
-darcula_yellow="#ffc66b"
-darcula_orange="#c96a2d"
-darcula_red="#e5c07b"
+darcula_black="#1E1F22"
+darcula_blue="#56A8F5"
+darcula_yellow="#AFBF7E"
+darcula_orange="#CC7832"
+darcula_red="#FA6675"
 darcula_white="#cdd0d3"
-darcula_green="#9db871"
-darcula_visual_grey="#3a3a3b"
-darcula_comment_grey="#5c6370"
+darcula_green="#6AAB73"
+darcula_visual_grey="#2b2d30"
+darcula_comment_grey="#7A7E85"
 
 
 get() {
