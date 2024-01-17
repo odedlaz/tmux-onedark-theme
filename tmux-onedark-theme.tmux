@@ -6,8 +6,10 @@ darcula_orange="#CC7832"
 darcula_red="#FA6675"
 darcula_white="#cdd0d3"
 darcula_green="#6AAB73"
-darcula_visual_grey="#2b2d30"
-darcula_comment_grey="#7A7E85"
+darcula_visual_grey="#7A7E85"
+darcula_comment_grey="#2b2d30"
+# darcula_status_background="#2b2d30"
+darcula_status_background=$darcula_black
 
 
 get() {
@@ -76,7 +78,7 @@ set "pane-active-border-bg" "$darcula_black"
 set "display-panes-active-colour" "$darcula_yellow"
 set "display-panes-colour" "$darcula_blue"
 
-set "status-bg" "$darcula_black"
+set "status-bg" "$darcula_status_background"
 set "status-fg" "$darcula_white"
 
 set "@prefix_highlight_fg" "$darcula_black"
@@ -85,11 +87,11 @@ set "@prefix_highlight_copy_mode_attr" "fg=$darcula_black,bg=$darcula_yellow"
 set "@prefix_highlight_output_prefix" "  "
 
 status_widgets=$(get "@darcula_widgets")
-time_format=$(get "@darcula_time_format" "%R")
-date_format=$(get "@darcula_date_format" "%d/%m/%Y")
+time_format=$(get "@darcula_time_format" "%I:%M %P")
+date_format=$(get "@darcula_date_format" "%m/%d/%Y")
 
-set "status-right" "#[fg=$darcula_white,bg=$darcula_black,nounderscore,noitalics]${time_format}  ${date_format} #[fg=$darcula_visual_grey,bg=$darcula_black]#[fg=$darcula_visual_grey,bg=$darcula_visual_grey]#[fg=$darcula_white, bg=$darcula_visual_grey]${status_widgets} #[fg=$darcula_comment_grey,bg=$darcula_visual_grey,nobold,nounderscore,noitalics]#[fg=$darcula_black,bg=$darcula_comment_grey,bold] #h #[fg=$darcula_comment_grey, bg=$darcula_comment_grey]#[fg=$darcula_comment_grey,bg=$darcula_comment_grey]"
-set "status-left" "#[fg=$darcula_black,bg=$darcula_comment_grey,bold] #S #{prefix_highlight}#[fg=$darcula_comment_grey,bg=$darcula_black,nobold,nounderscore,noitalics]"
+set "status-right" "#[fg=$darcula_white,bg=$darcula_status_background,nounderscore,noitalics]${date_format}  ${time_format} "
+set "status-left" "#[fg=$darcula_white,bg=$darcula_comment_grey] #S #{prefix_highlight}#[fg=$darcula_comment_grey,bg=$darcula_status_background,nobold,nounderscore,noitalics]"
 
-set "window-status-format" "#[fg=$darcula_black,bg=$darcula_black,nobold,nounderscore,noitalics]#[fg=$darcula_white,bg=$darcula_black] #I  #W #[fg=$darcula_black,bg=$darcula_black,nobold,nounderscore,noitalics]"
-set "window-status-current-format" "#[fg=$darcula_black,bg=$darcula_visual_grey,nobold,nounderscore,noitalics]#[fg=$darcula_white,bg=$darcula_visual_grey,nobold] #I  #W #[fg=$darcula_visual_grey,bg=$darcula_black,nobold,nounderscore,noitalics]"
+set "window-status-format" "#[fg=$darcula_status_background,bg=$darcula_status_background,nobold,nounderscore,noitalics]#[fg=$darcula_white,bg=$darcula_status_background] #I  #W #[fg=$darcula_status_background,bg=$darcula_status_background,nobold,nounderscore,noitalics]"
+set "window-status-current-format" "#[fg=$darcula_status_background,bg=$darcula_visual_grey,nobold,nounderscore,noitalics]#[fg=$darcula_status_background,bg=$darcula_visual_grey,nobold] #I  #W #[fg=$darcula_visual_grey,bg=$darcula_status_background,nobold,nounderscore,noitalics]"
