@@ -60,6 +60,14 @@ set -g @onedark_date_format "%D"
 
 These modifiers were taken from from [strftime manpage](http://man7.org/linux/man-pages/man3/strftime.3.html).
 
+#### Fade inactive panes
+
+By default text in inactive panes are faded. This can be toggled via the following option.
+
+```
+set -g @onedark_fade_inactive_panes "false"
+```
+
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:

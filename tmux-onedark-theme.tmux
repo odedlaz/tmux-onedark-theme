@@ -1,12 +1,16 @@
 #!/bin/bash
-onedark_black="#282c34"
-onedark_blue="#61afef"
-onedark_yellow="#e5c07b"
-onedark_red="#e06c75"
-onedark_white="#aab2bf"
-onedark_green="#98c379"
-onedark_visual_grey="#3e4452"
-onedark_comment_grey="#5c6370"
+darcula_black="#1E1F22"
+darcula_blue="#56A8F5"
+darcula_yellow="#AFBF7E"
+darcula_orange="#CC7832"
+darcula_red="#FA6675"
+darcula_white="#cdd0d3"
+darcula_green="#6AAB73"
+darcula_visual_grey="#7A7E85"
+darcula_comment_grey="#2b2d30"
+# darcula_status_background="#2b2d30"
+darcula_status_background=$darcula_black
+
 
 get() {
    local option=$1
@@ -39,50 +43,55 @@ set "status-left-length" "100"
 set "status-right-length" "100"
 set "status-right-attr" "none"
 
-set "message-fg" "$onedark_white"
-set "message-bg" "$onedark_black"
+set "message-fg" "$darcula_white"
+set "message-bg" "$darcula_black"
 
-set "message-command-fg" "$onedark_white"
-set "message-command-bg" "$onedark_black"
+set "message-command-fg" "$darcula_white"
+set "message-command-bg" "$darcula_black"
 
 set "status-attr" "none"
 set "status-left-attr" "none"
 
-setw "window-status-fg" "$onedark_black"
-setw "window-status-bg" "$onedark_black"
+setw "window-status-fg" "$darcula_black"
+setw "window-status-bg" "$darcula_black"
 setw "window-status-attr" "none"
 
-setw "window-status-activity-bg" "$onedark_black"
-setw "window-status-activity-fg" "$onedark_black"
+setw "window-status-activity-bg" "$darcula_black"
+setw "window-status-activity-fg" "$darcula_black"
 setw "window-status-activity-attr" "none"
 
 setw "window-status-separator" ""
 
-set "window-style" "fg=$onedark_comment_grey"
-set "window-active-style" "fg=$onedark_white"
+fade_inactive_panes=$(get "@darcula_fade_inactive_panes" "true")
+if [ "$fade_inactive_panes" = "true" ]; then
+   set "window-style" "fg=$darcula_comment_grey"
+else
+   set "window-style" "fg=$darcula_white"
+fi
+set "window-active-style" "fg=$darcula_white"
 
-set "pane-border-fg" "$onedark_white"
-set "pane-border-bg" "$onedark_black"
-set "pane-active-border-fg" "$onedark_green"
-set "pane-active-border-bg" "$onedark_black"
+set "pane-border-fg" "$darcula_white"
+set "pane-border-bg" "$darcula_black"
+set "pane-active-border-fg" "$darcula_yellow"
+set "pane-active-border-bg" "$darcula_black"
 
-set "display-panes-active-colour" "$onedark_yellow"
-set "display-panes-colour" "$onedark_blue"
+set "display-panes-active-colour" "$darcula_yellow"
+set "display-panes-colour" "$darcula_blue"
 
-set "status-bg" "$onedark_black"
-set "status-fg" "$onedark_white"
+set "status-bg" "$darcula_status_background"
+set "status-fg" "$darcula_white"
 
-set "@prefix_highlight_fg" "$onedark_black"
-set "@prefix_highlight_bg" "$onedark_green"
-set "@prefix_highlight_copy_mode_attr" "fg=$onedark_black,bg=$onedark_green"
+set "@prefix_highlight_fg" "$darcula_black"
+set "@prefix_highlight_bg" "$darcula_yellow"
+set "@prefix_highlight_copy_mode_attr" "fg=$darcula_black,bg=$darcula_yellow"
 set "@prefix_highlight_output_prefix" "  "
 
-status_widgets=$(get "@onedark_widgets")
-time_format=$(get "@onedark_time_format" "%R")
-date_format=$(get "@onedark_date_format" "%d/%m/%Y")
+status_widgets=$(get "@darcula_widgets")
+time_format=$(get "@darcula_time_format" "%I:%M %P")
+date_format=$(get "@darcula_date_format" "%m/%d/%Y")
 
-set "status-right" "#[fg=$onedark_white,bg=$onedark_black,nounderscore,noitalics]${time_format}  ${date_format} #[fg=$onedark_visual_grey,bg=$onedark_black]#[fg=$onedark_visual_grey,bg=$onedark_visual_grey]#[fg=$onedark_white, bg=$onedark_visual_grey]${status_widgets} #[fg=$onedark_green,bg=$onedark_visual_grey,nobold,nounderscore,noitalics]#[fg=$onedark_black,bg=$onedark_green,bold] #h #[fg=$onedark_yellow, bg=$onedark_green]#[fg=$onedark_red,bg=$onedark_yellow]"
-set "status-left" "#[fg=$onedark_black,bg=$onedark_green,bold] #S #{prefix_highlight}#[fg=$onedark_green,bg=$onedark_black,nobold,nounderscore,noitalics]"
+set "status-right" "#[fg=$darcula_white,bg=$darcula_status_background,nounderscore,noitalics]${date_format}  ${time_format} "
+set "status-left" "#[fg=$darcula_white,bg=$darcula_comment_grey] #S #{prefix_highlight}#[fg=$darcula_comment_grey,bg=$darcula_status_background,nobold,nounderscore,noitalics]"
 
-set "window-status-format" "#[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]#[fg=$onedark_white,bg=$onedark_black] #I  #W #[fg=$onedark_black,bg=$onedark_black,nobold,nounderscore,noitalics]"
-set "window-status-current-format" "#[fg=$onedark_black,bg=$onedark_visual_grey,nobold,nounderscore,noitalics]#[fg=$onedark_white,bg=$onedark_visual_grey,nobold] #I  #W #[fg=$onedark_visual_grey,bg=$onedark_black,nobold,nounderscore,noitalics]"
+set "window-status-format" "#[fg=$darcula_status_background,bg=$darcula_status_background,nobold,nounderscore,noitalics]#[fg=$darcula_white,bg=$darcula_status_background] #I  #W #[fg=$darcula_status_background,bg=$darcula_status_background,nobold,nounderscore,noitalics]"
+set "window-status-current-format" "#[fg=$darcula_status_background,bg=$darcula_visual_grey,nobold,nounderscore,noitalics]#[fg=$darcula_status_background,bg=$darcula_visual_grey,nobold] #I  #W #[fg=$darcula_visual_grey,bg=$darcula_status_background,nobold,nounderscore,noitalics]"
