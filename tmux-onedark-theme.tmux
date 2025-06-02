@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 onedark_black="#282c34"
 onedark_blue="#61afef"
 onedark_yellow="#e5c07b"
